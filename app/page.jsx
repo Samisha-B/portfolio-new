@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Preview from "@/components/Preview";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
+import HeroShowcase from "@/components/HeroShowcase";
 import ContactForm from "@/components/ContactForm";
 import { site, demos, services, plans, reasons, steps } from "@/data/site";
 
@@ -36,12 +37,7 @@ export default function Home() {
             </div>
             <p className="cred">Websites crafted for beauty, cleaning &amp; real estate businesses.</p>
           </div>
-          <div className="hero-art" aria-label="Website mockups">
-            <div className="blob" />
-            <Browser d={demos[0]} className="h-main" />
-            <Browser d={demos[2]} className="h-back" />
-            <Phone d={demos[1]} className="h-phone" />
-          </div>
+          <HeroShowcase />
         </section>
 
         <section id="about" className="section wrap">
