@@ -2,6 +2,7 @@ import "./extras.css";
 import Nav from "@/components/Nav";
 import Preview from "@/components/Preview";
 import Portfolio from "@/components/Portfolio";
+import Testimonials from "@/components/Testimonials";
 import ContactForm from "@/components/ContactForm";
 import { site, demos, services, plans, reasons, steps } from "@/data/site";
 
@@ -97,6 +98,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <Testimonials />
 
         <section id="plans" className="section wrap">
           <p className="eyebrow">Website Plans</p>
