@@ -7,10 +7,15 @@ Instagram, the three demo sites, portfolio entries, services, plans (set `price`
 
 To use a screenshot instead of the live iframe preview, add it to `/public/previews/` and set `image: "/previews/name.jpg"` (and `mobileImage`) on the project/demo.
 
-## Contact form -> your email (email is never shown on the site)
-1. Create a form at Formspree (or Web3Forms) using your email as the destination.
-2. In Vercel -> Settings -> Environment Variables add `FORM_ENDPOINT` (the form URL). For Web3Forms also add `FORM_ACCESS_KEY`.
-3. Redeploy. Until set, the API returns 501 and the form says it is not connected.
+## Contact form -> your inbox via Resend
+1. Sign up at resend.com with the email you want enquiries sent to.
+2. Create an API key (Sending access).
+3. In Vercel -> Settings -> Environment Variables add `RESEND_API_KEY` and `CONTACT_TO_EMAIL`. Optionally `RESEND_FROM` and `NEXT_PUBLIC_SITE_URL`.
+4. Redeploy and send a test enquiry. Check spam the first time.
+
+Without a verified domain, Resend only sends from `onboarding@resend.dev` and only to your own account email. To send from your own domain, verify it in Resend and set `RESEND_FROM`.
+
+Until configured, the API returns 501 and the form says it is not connected. Your email and key live only in Vercel env vars, never in the repo or on the site.
 
 ## Run
 ```
