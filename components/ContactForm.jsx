@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { businessTypes, websiteTypes } from "@/data/site";
+import { businessTypes, websiteTypes, planOptions } from "@/data/site";
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -10,8 +10,8 @@ export default function ContactForm() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const d = Object.fromEntries(f.entries());
+    const form = e.currentTarget;
+    const d = Object.fromEntries(new FormData(form).entries());
     const er = {};
     if (!d.name?.trim()) er.name = "Please enter your name.";
     if (!EMAIL.test(d.email || "")) er.email = "Please enter a valid email address.";
@@ -27,7 +27,7 @@ export default function ContactForm() {
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || "Something went wrong.");
       setStatus({ state: "ok", msg: "Thank you! Your message has been sent. I'll reply personally soon." });
-      e.target.reset();
+      form.reset();
     } catch (err) {
       setStatus({ state: "err", msg: err.message });
     }
@@ -57,6 +57,11 @@ export default function ContactForm() {
           </select><Err id="websiteType" />
         </label>
       </div>
+      <label>Plan you&apos;re interested in
+        <select name="plan" defaultValue="Not sure yet">
+          {planOptions.map((b) => <option key={b}>{b}</option>)}
+        </select>
+      </label>
       <label>Additional project details<textarea name="details" rows={5} maxLength={3000} {...a("details")} /><Err id="details" /></label>
       <input name="company_website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hp" />
       <button className="btn" disabled={status.state === "sending"}>{status.state === "sending" ? "Sending..." : "Send enquiry"}</button>

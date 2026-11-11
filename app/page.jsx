@@ -1,8 +1,9 @@
+import "./extras.css";
 import Nav from "@/components/Nav";
 import Preview from "@/components/Preview";
 import Portfolio from "@/components/Portfolio";
 import ContactForm from "@/components/ContactForm";
-import { site, demos, services, reasons, steps } from "@/data/site";
+import { site, demos, services, plans, reasons, steps } from "@/data/site";
 
 const Browser = ({ d, className = "" }) => (
   <div className={`browser ${className}`}>
@@ -42,9 +43,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="section wrap about">
-          <div className="about-card"><span>Simran B.</span><small>Website designer &amp; developer</small></div>
-          <div>
+        <section id="about" className="section wrap">
+          <div className="about-solo">
             <p className="eyebrow">About</p>
             <h2>Thoughtful design, <em>practical</em> functionality.</h2>
             <p>Hi, I&apos;m Simran. I help businesses establish a professional online presence through beautifully designed, easy-to-use websites.</p>
@@ -98,24 +98,42 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section wrap why">
-          <div>
-            <p className="eyebrow">Why Work With Me</p>
-            <h2>Design that feels <em>like you.</em></h2>
+        <section id="plans" className="section wrap">
+          <p className="eyebrow">Website Plans</p>
+          <h2>Choose the plan that <em>fits your business.</em></h2>
+          <div className="plans">
+            {plans.map((p) => (
+              <article key={p.id} className={p.featured ? "card plan feat" : "card plan"}>
+                {p.badge && <span className="badge">{p.badge}</span>}
+                <h3>{p.name}</h3>
+                <p className="muted">{p.tagline}</p>
+                <p className="price">{p.price}</p>
+                <ul>{p.features.map((f) => <li key={f}>{f}</li>)}</ul>
+                <a className="btn" href="#contact">Enquire about this plan</a>
+              </article>
+            ))}
           </div>
-          <ul className="reasons">{reasons.map((r) => <li key={r}>{r}</li>)}</ul>
+          <p className="plan-note">Every project is scoped to your business. Send an enquiry for a tailored quote.</p>
         </section>
 
-        <section id="process" className="section alt">
-          <div className="wrap">
-            <p className="eyebrow">My Process</p>
-            <h2>Four simple <em>steps.</em></h2>
-            <ol className="steps">
-              {steps.map((p) => (
-                <li key={p.n} className="card"><span className="big">{p.n}</span><h3>{p.title}</h3><p className="muted">{p.text}</p></li>
-              ))}
-            </ol>
+        <section className="section alt why-wrap">
+          <div className="wrap why">
+            <div>
+              <p className="eyebrow">Why Work With Me</p>
+              <h2>Design that feels <em>like you.</em></h2>
+            </div>
+            <ul className="reasons">{reasons.map((r) => <li key={r}>{r}</li>)}</ul>
           </div>
+        </section>
+
+        <section id="process" className="section wrap">
+          <p className="eyebrow">My Process</p>
+          <h2>Four simple <em>steps.</em></h2>
+          <ol className="steps">
+            {steps.map((p) => (
+              <li key={p.n} className="card"><span className="big">{p.n}</span><h3>{p.title}</h3><p className="muted">{p.text}</p></li>
+            ))}
+          </ol>
         </section>
 
         <section className="final">
@@ -124,7 +142,7 @@ export default function Home() {
             <p>Let&apos;s give them a website worth finding.</p>
             <div className="cta c">
               <a className="btn btn-light" href="#contact">Let&apos;s Build Something Beautiful.</a>
-              <a className="btn btn-outline" href={c.whatsapp} target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+              <a className="btn btn-outline" href={c.instagram} target="_blank" rel="noopener noreferrer">DM on Instagram</a>
             </div>
           </div>
         </section>
@@ -135,7 +153,6 @@ export default function Home() {
             <h2>Let&apos;s talk about <em>your website.</em></h2>
             <p className="muted">Tell me a little about your business and I&apos;ll get back to you personally.</p>
             <ul className="direct">
-              <li><a href={c.whatsapp} target="_blank" rel="noopener noreferrer">{c.whatsappLabel}</a></li>
               <li><a href={c.instagram} target="_blank" rel="noopener noreferrer">Instagram {c.instagramLabel}</a></li>
             </ul>
           </div>

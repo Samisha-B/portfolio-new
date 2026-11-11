@@ -2,15 +2,15 @@
 
 Next.js 14 (App Router) portfolio. No CSS framework, no extra dependencies.
 
-## Edit everything in one file
-`data/site.js` holds contact details, projects, URLs, services, process and copy.
+## Edit everything in `data/site.js`
+Instagram, the three demo sites, portfolio entries, services, plans (set `price` to publish real prices), process and form options.
 
-- Replace `whatsapp`, `instagram`, `email` placeholders.
-- Beauty projects 2-5 and the second cleaning project are placeholders (no link, labelled). Fill in `name`, `description`, `features`, `url`.
-- Add a screenshot to `/public/previews/` and set `image: "/previews/name.jpg"` on a project to use it instead of the live iframe preview.
+To use a screenshot instead of the live iframe preview, add it to `/public/previews/` and set `image: "/previews/name.jpg"` (and `mobileImage`) on the project/demo.
 
-## Contact form
-Set `FORM_ENDPOINT` (e.g. a Formspree URL) in Vercel -> Settings -> Environment Variables. Until then, the API returns 501 and the form tells the visitor it is not connected, so nothing is silently lost.
+## Contact form -> your email (email is never shown on the site)
+1. Create a form at Formspree (or Web3Forms) using your email as the destination.
+2. In Vercel -> Settings -> Environment Variables add `FORM_ENDPOINT` (the form URL). For Web3Forms also add `FORM_ACCESS_KEY`.
+3. Redeploy. Until set, the API returns 501 and the form says it is not connected.
 
 ## Run
 ```
@@ -19,7 +19,4 @@ npm run dev
 ```
 
 ## Deploy
-Import the repo in Vercel. Framework preset: Next.js. Add env vars from `.env.example`.
-
-## Note on live previews
-Previews are scaled iframes of the real sites. If a site blocks framing, the card falls back to a styled placeholder; add a screenshot via `image`.
+Import the repo in Vercel (Next.js preset) and add env vars from `.env.example`.

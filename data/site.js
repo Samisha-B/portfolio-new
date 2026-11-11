@@ -5,12 +5,8 @@ export const site = {
   description:
     "Simran B. designs and builds beautiful, conversion-focused websites for beauty, cleaning and real estate businesses.",
   contact: {
-    // EDIT ME: placeholders
-    email: "hello@example.com",
-    whatsapp: "https://wa.me/0000000000",
-    whatsappLabel: "WhatsApp: +00 0000 000000 (placeholder)",
-    instagram: "https://instagram.com/your_handle",
-    instagramLabel: "@your_handle (placeholder)",
+    instagram: "https://www.instagram.com/simran_b1108/",
+    instagramLabel: "@simran_b1108",
   },
 };
 
@@ -44,8 +40,6 @@ export const demos = [
   },
 ];
 
-const PLACEHOLDER = "Placeholder - edit in data/site.js";
-
 export const categories = [
   { id: "all", label: "All Projects" },
   { id: "beauty", label: "Beauty & Nail Studios" },
@@ -61,26 +55,12 @@ export const projects = [
     features: ["Online appointment booking", "Service catalogue and pricing", "Nail art gallery", "Product shop", "Instagram integration", "Contact form and location"],
     url: "https://blush-studio-nail-template.vercel.app/", image: "",
   },
-  ...[2, 3, 4, 5].map((n) => ({
-    id: `beauty-${n}`, category: "beauty", categoryLabel: "Beauty & Nail Studio",
-    name: `Beauty Project ${n} (placeholder)`,
-    description: PLACEHOLDER,
-    features: ["Online appointment booking", "Service catalogue and pricing", "Contact form and location"],
-    url: "", image: "", placeholder: true,
-  })),
   {
     id: "cleaning-1", category: "cleaning", categoryLabel: "Cleaning Business",
     name: "Cleaning Company Website",
     description: "A professional cleaning business website that makes it simple to request a quote.",
     features: ["Service listings", "Booking and quote request forms", "Residential and commercial options", "Why Choose Us section", "Reviews and testimonials layout", "Service areas", "Contact information"],
     url: "https://cleaning-comp-temp-blond.vercel.app/", image: "",
-  },
-  {
-    id: "cleaning-2", category: "cleaning", categoryLabel: "Cleaning Business",
-    name: "Cleaning Project 2 (placeholder)",
-    description: PLACEHOLDER,
-    features: ["Service listings", "Quote request form", "Service areas"],
-    url: "", image: "", placeholder: true,
   },
   {
     id: "realestate-1", category: "realestate", categoryLabel: "Real Estate",
@@ -98,6 +78,33 @@ export const services = [
   { title: "E-commerce & Product Displays", text: "Showcase and sell products directly through your website." },
   { title: "Website Redesign", text: "Transform outdated websites into modern digital experiences." },
   { title: "Landing Pages", text: "High-converting pages designed for campaigns and lead generation." },
+];
+
+// Pricing intentionally not shown: edit `price` to publish real numbers.
+export const plans = [
+  {
+    id: "showcase",
+    name: "Showcase",
+    tagline: "A beautiful, credible home for your business online.",
+    price: "Custom quote",
+    features: ["Custom, brand-aligned design", "Mobile-first responsive build", "Services and gallery sections", "Instagram feed / link integration", "Enquiry form delivered to your email inbox", "SEO-friendly structure"],
+  },
+  {
+    id: "booking",
+    name: "Booking & Calendar",
+    tagline: "Turn visitors into scheduled appointments.",
+    price: "Custom quote",
+    featured: true,
+    badge: "Great for service businesses",
+    features: ["Everything in Showcase", "Online booking with Google Calendar integration", "Gmail / email notifications for new bookings and enquiries", "Service catalogue with pricing", "Product display or shop section", "Google Maps location and opening hours"],
+  },
+  {
+    id: "ai",
+    name: "AI-Powered Site",
+    tagline: "A site that answers questions and captures leads for you.",
+    price: "Custom quote",
+    features: ["Everything in Booking & Calendar", "AI chat assistant trained on your services and FAQs", "AI-assisted lead and quote qualification", "Automated email follow-ups", "Priority support after launch"],
+  },
 ];
 
 export const reasons = [
@@ -118,3 +125,4 @@ export const steps = [
 
 export const businessTypes = ["Beauty / Nail studio", "Cleaning business", "Real estate", "Other"];
 export const websiteTypes = ["New website", "Website redesign", "Landing page", "Booking website", "Online shop", "Not sure yet"];
+export const planOptions = ["Showcase", "Booking & Calendar", "AI-Powered Site", "Not sure yet"];
