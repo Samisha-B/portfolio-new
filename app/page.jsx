@@ -2,7 +2,7 @@ import Nav from "@/components/Nav";
 import Preview from "@/components/Preview";
 import Portfolio from "@/components/Portfolio";
 import ContactForm from "@/components/ContactForm";
-import { site, demos, services, reasons, process } from "@/data/site";
+import { site, demos, services, reasons, steps } from "@/data/site";
 
 const Browser = ({ d, className = "" }) => (
   <div className={`browser ${className}`}>
@@ -111,7 +111,7 @@ export default function Home() {
             <p className="eyebrow">My Process</p>
             <h2>Four simple <em>steps.</em></h2>
             <ol className="steps">
-              {process.map((p) => (
+              {steps.map((p) => (
                 <li key={p.n} className="card"><span className="big">{p.n}</span><h3>{p.title}</h3><p className="muted">{p.text}</p></li>
               ))}
             </ol>

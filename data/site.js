@@ -109,7 +109,7 @@ export const reasons = [
   "Personal communication and attention to detail",
 ];
 
-export const process = [
+export const steps = [
   { n: "01", title: "Discover", text: "Understanding your business, customers and goals." },
   { n: "02", title: "Design", text: "Creating a visual direction and website layout that fits your brand." },
   { n: "03", title: "Build", text: "Developing a responsive, functional website." },
